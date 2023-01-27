@@ -1,0 +1,33 @@
+﻿@model DeckOfCardsApiLab.Models.CardSelection
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <h4>Your Cards:</h4>
+    <form asp-action="Cards">
+    <table>
+        <tr>
+            @foreach (var card in Model.cards)
+            {
+                <td>
+                    <span>@card.value of @card.suit</span>
+                </td>
+            }
+        </tr>
+        <tr>
+            @foreach (var card in Model.cards)
+                {
+                    <td>
+                        <span><img src="@card.image" /></span>
+                    </td>
+                }
+            </tr>
+                    </table>
+ 
+        <input asp-for="deck_id" class="form-control" hidden />
+        <input type="submit" value="Re-Draw" class="btn btn-primary" />
+    </form>
+</div>
+
